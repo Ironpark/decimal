@@ -87,6 +87,14 @@ func New(value int64, exp int32) Decimal {
 	}
 }
 
+// New returns a new fixed-point decimal, value * 10 ^ exp.
+func NewFromUint64(value uint64, exp int32) Decimal {
+	return Decimal{
+		value: new(big.Int).SetUint64(value),
+		exp:   exp,
+	}
+}
+
 // NewFromBigInt returns a new Decimal from a big.Int, value * 10 ^ exp
 func NewFromBigInt(value *big.Int, exp int32) Decimal {
 	return Decimal{
