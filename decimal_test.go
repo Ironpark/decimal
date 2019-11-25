@@ -2579,6 +2579,14 @@ func TestTan(t *testing.T) {
 	}
 }
 
+func TestUintpart(t *testing.T) {
+	var a uint64 = math.MaxUint64
+	fmt.Println(a)
+	fmt.Println(NewFromUint64(math.MaxUint64, 0))
+	fmt.Println(NewFromUint64(math.MaxUint64, 0).IntPart())
+	fmt.Println(NewFromUint64(math.MaxUint64, 0).UintPart())
+}
+
 func ExampleNewFromFloat32() {
 	fmt.Println(NewFromFloat32(123.123123123123).String())
 	fmt.Println(NewFromFloat32(.123123123123123).String())

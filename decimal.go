@@ -684,6 +684,12 @@ func (d Decimal) IntPart() int64 {
 	return scaledD.value.Int64()
 }
 
+// IntPart returns the integer component of the decimal.
+func (d Decimal) UintPart() uint64 {
+	scaledD := d.rescale(0)
+	return scaledD.value.Uint64()
+}
+
 // Rat returns a rational number representation of the decimal.
 func (d Decimal) Rat() *big.Rat {
 	d.ensureInitialized()
@@ -964,7 +970,6 @@ func (d *Decimal) Size() int {
 	}
 	return len(d.String())
 }
-
 
 // UnmarshalJSON implements the json.Unmarshaler interface.
 func (d *Decimal) UnmarshalJSON(decimalBytes []byte) error {
